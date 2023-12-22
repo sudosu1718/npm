@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffie-Hellman Key Exchange</title>
+</head>
+<body>
+    <h1>Diffie-Hellman Key Exchange</h1>
+    
+    <script>
+        // Bob's (JavaScript) side
+        const prime = 23; // Common prime number
+        const primitiveRoot = 5; // Common primitive root
+
+        // Generate a private key for Bob
+        const privateKeyBob = Math.floor(Math.random() * 10) + 1;
+
+        // Calculate public key for Bob
+        const publicKeyBob = (primitiveRoot ** privateKeyBob) % prime;
+
+        // Output Bob's public key
+        console.log("Bob's Public Key: " + publicKeyBob);
+
+        // Assume Alice sends her public key to Bob (You can get Alice's public key from the server in a real scenario)
+
+        // Alice's public key (for demonstration purposes)
+        const publicKeyAlice = 8;
+
+        // Calculate shared secret
+        const sharedSecretBob = (publicKeyAlice ** privateKeyBob) % prime;
+
+        // Output the shared secret
+        console.log("Shared Secret: " + sharedSecretBob);
+    </script>
+</body>
+</html>
